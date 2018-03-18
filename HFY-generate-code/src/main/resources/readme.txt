@@ -1,0 +1,9 @@
+本包主要功能
+1.自动生成Mapper.xml
+2.自动生成Mapper.java
+3.自动生成Entity.java
+4.自动生成Service.java
+5.自动生成Controller.java
+6.自动生成js
+7.自动生成jsp
+8.自动生成i18n国际化

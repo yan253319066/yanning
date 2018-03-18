@@ -1,0 +1,108 @@
+package ${packageName}.controller;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hfy.base.controller.impl.BaseControllerImpl;
+import com.hfy.base.entity.BootStrapPage;
+import com.hfy.base.entity.Result;
+import com.hfy.enums.ResultCode;
+import com.hfy.utils.RequestParamUtil;
+import ${packageName}.entity.${className};
+import ${packageName}.service.${className}Service;
+import com.hfy.login.entity.Login;
+import com.hfy.utils.ExcelUtils;
+import com.hfy.base.entity.ExcelHeader;
+import net.sf.json.JSONArray;
+@Controller
+@RequestMapping(value = ${className}Controller.BASE_URL)
+public class ${className}Controller extends BaseControllerImpl{
+	private static Logger logger = LoggerFactory.getLogger(${className}Controller.class);
+	public static final String BASE_URL = "/${name}";
+	
+	@Autowired
+	private ${className}Service ${name}Service;
+	
+	@RequestMapping("list")
+	@ResponseBody
+	public BootStrapPage<${className}> list(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		logger.info("list ${name}...");
+		Map<String,Object> paramMap = RequestParamUtil.formMapDelEmpty(request);
+//		BootStrapPage<Map<String,Object>> page = ${name}Service.queryListMapPage(paramMap);
+		BootStrapPage<${className}> page = ${name}Service.queryListPageByLike(paramMap);
+		return page;
+	}
+	@RequestMapping("save")
+	@ResponseBody
+	public Result save(@ModelAttribute ${className} ${name}) throws Exception {
+		logger.info("save ${name}...");
+		Result result = new Result();
+		int res = -1;
+		Login login = getCurrentUser();
+		${name}.setUpdateBy(login.getUsername());
+		if (StringUtils.isBlank(${name}.getId())) {
+			${name}.setCreateBy(login.getUsername());
+			res = ${name}Service.insert(${name});
+		}else{
+			res = ${name}Service.update(${name});
+		}
+		if (res>0) {
+			result.setCode(ResultCode.SUCCESS.getId());
+		}else{
+			result.setCode(ResultCode.FAIL.getId());
+		}
+		return result;
+	}
+	@RequestMapping("del")
+	@ResponseBody
+	public Result del(@RequestParam("ids") String[] ids) throws Exception {
+		logger.info("delete ${name}...");
+		Result result = new Result();
+		List<String> list = Arrays.asList(ids);
+		int res = ${name}Service.deleteBatch(list);
+		logger.info("delete record quantity:"+res);
+		if (res > 0) {
+			result.setCode(ResultCode.SUCCESS.getId());
+		}else{
+			result.setCode(ResultCode.FAIL.getId());
+		}
+		return result;
+	}
+	
+	/**
+	@RequestMapping("export")
+	public void export(HttpServletRequest request,HttpServletResponse response){
+		Map<String,Object> paramMap = RequestParamUtil.formMapDelEmpty(request);
+		String filedName = (String) paramMap.get("exportFieldName");
+		String header = (String) paramMap.get("exportHeader");
+		paramMap.put("exportFieldName", null);
+		paramMap.put("exportHeader", null);
+		try {
+			List<ExcelHeader> headers = (List<ExcelHeader>) JSONArray.toCollection(JSONArray.fromObject(header), ExcelHeader.class);
+			List<${className}> ${name}s = ${name}Service.queryListByLink(paramMap);
+			//List<Map<String, Object>> maps = ${name}Service.queryListMapByLink(paramMap);
+			exportConvert(${name}s);//数据转换
+			ExcelUtils.exportExcelDownload(response, request, headers, ${name}s, filedName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public <E> void exportConvert(List<E> objs){
+		//这里需要自定义转换字段
+	}
+	**/
+}

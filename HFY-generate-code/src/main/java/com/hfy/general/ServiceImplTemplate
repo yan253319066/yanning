@@ -1,0 +1,21 @@
+package ${packageName}.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hfy.base.mapper.BaseMapper;
+import com.hfy.base.service.impl.BaseServiceImpl;
+import ${packageName}.mapper.${className}Mapper;
+import ${packageName}.service.${className}Service;
+
+@Service
+public class ${className}ServiceImpl extends BaseServiceImpl implements ${className}Service{
+	@Autowired
+	${className}Mapper ${name}Mapper;
+	@Override
+	public BaseMapper getMapper() {
+		// TODO Auto-generated method stub
+		return this.${name}Mapper;
+	}
+	
+}

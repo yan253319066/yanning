@@ -1,0 +1,7 @@
+package ${packageName}.mapper;
+
+import com.hfy.base.mapper.BaseMapper;
+
+public interface ${className}Mapper extends BaseMapper {	
+
+}

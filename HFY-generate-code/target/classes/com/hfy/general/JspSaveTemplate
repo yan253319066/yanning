@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<jsp:include page="../../common/include.jsp"></jsp:include>
+<c:if test="${language == 'zh_CN' }">
+	<jsp:include page="../../common/include_zh_CN.jsp"></jsp:include>
+</c:if>
+<c:if test="${language == 'zh_TW' }">
+	<jsp:include page="../../common/include_zh_TW.jsp"></jsp:include>
+</c:if>
+</head>
+<body class="gray-bg" style="cursor: auto;">
+	<div class="row white-bg" style="height: 100%">
+		<div class="panel-body" style="padding-bottom:0px;">
+		  	<div class="panel panel-default">
+		   		<!-- <div class="panel-heading"></div> -->
+			   <div class="panel-body">
+			   		<form class="form-horizontal" id="${name}Form">
+			   			${saveColumns}
+                     </form>
+			   </div>
+		 	</div>  
+		 </div>
+	</div>
+	<script src="${ctx }resources/webjs/utils/common.js"></script>
+</body>
+</html>

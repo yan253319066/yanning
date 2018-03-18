@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="../../common/include.jsp"></jsp:include>
+<c:if test="${language == 'zh_CN' }">
+	<jsp:include page="../../common/include_zh_CN.jsp"></jsp:include>
+</c:if>
+<c:if test="${language == 'zh_TW' }">
+	<jsp:include page="../../common/include_zh_TW.jsp"></jsp:include>
+</c:if>
+<script src="${ctx }resources/webjs/${jsPath}${name}.js"></script>
+</head>
+<body class="gray-bg" style="cursor: auto;">
+
+	<!--start 查询form表单 -->
+    <div class="wrapper wrapper-content">
+        <div class="row white-bg">
+            <div class="panel-body" style="padding-bottom:0px;">
+			  	<div class="panel panel-default">
+			   		<div class="panel-heading" id="${name}-list-query"></div>
+				   <div class="panel-body keydown">
+				   		<form class="form-horizontal m-t" id="queryForm" >
+                            ${searchColumns}
+                        </form>
+				   </div>
+			 	</div>  
+			 </div>
+        </div>
+        <!--end 查询form表单 -->
+        
+        <!--start 列表 -->
+        <div class="row white-bg">
+            <div class="col-sm-12">
+            	<div id="toolbar" class="btn-group">
+				   <button type="button" class="btn btn-default" onclick="${name}.save${className}Page(${name}.add)">
+				    <span class="glyphicon glyphicon-plus"></span>
+				    <span aria-hidden="true" id="button-add"></span>
+				   </button>
+				   <button type="button" class="btn btn-default" onclick="${name}.save${className}Page(${name}.edit)">
+				    <span class="glyphicon glyphicon-pencil"></span>
+				    <span aria-hidden="true" id="button-edit"></span>
+				   </button>
+				   <button type="button" class="btn btn-default" onclick="${name}.del${className}()">
+				    <span class="glyphicon glyphicon-remove"></span>
+				    <span aria-hidden="true" id="button-del"></span>
+				   </button>
+				   <button type="button" class="btn btn-default" onclick="${name}.view${className}Page()">
+				    <span class="glyphicon glyphicon-eye-open"></span>
+				    <span aria-hidden="true" id="button-view"></span>
+				   </button>
+				   <!--<button type="button" class="btn btn-default" onclick="${name}.export${className}Page()">
+				    <span class="glyphicon glyphicon-export"></span>
+				    <span aria-hidden="true" id="button-export"></span>
+				   </button>-->
+				</div>
+            	<table id="${name}ListTable"></table>
+            </div>
+        </div>
+        <!--end 列表 -->
+    </div>
+    <script src="${ctx }resources/webjs/utils/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${packageName}.mapper.${className}Mapper" >
+<!-- Result Map-->
+<resultMap id="${name}" type="${packageName}.entity.${className}" >
+	<result column="${pkId}" property="id"/>
+	@resultMap{<result column="@{columnName}" property="@{name}"/>}@
+</resultMap>
+
+<!-- f_order table all fields -->
+<sql id="columnList" >
+	${abbrTableName}.${pkId},
+	@columnList{ ${abbrTableName}.@{columnName},}@
+</sql>
+
+<!-- 查询条件 -->
+<sql id="whereClause">
+where 1=1
+<trim  suffixOverrides="," >
+	<if test="id != null" >
+	    and ${abbrTableName}.${pkId} = #{id}
+	</if>
+	@whereClause{<if test="@{name} != null" >and  ${abbrTableName}.@{columnName} = #{@{name}}</if>}@
+</trim>
+</sql>
+
+<!-- 模糊查询条件 -->
+<sql id="whereLikeClause">
+where 1=1
+<trim  suffixOverrides="," >
+	<if test="id != null" >
+	    and ${abbrTableName}.${pkId} = #{id}
+	</if>													 		
+	@whereClause{<if test="@{name} != null" >and  UPPER(${abbrTableName}.@{columnName}) LIKE   UPPER(CONCAT(CONCAT('%',#{@{name}}),'%'))</if>}@
+</trim>
+</sql>
+
+<!--mysql 插入记录 -->
+<insert id="insert" parameterType="Object" useGeneratedKeys="true" keyProperty="id">
+  insert into ${tableName} (@insert{@{columnName},}@)
+  values(@insert{#{@{name},jdbcType=@{jdbcColumnType}},}@)
+</insert>
+<!--mysql 批量插入 -->
+<insert id="insertBatch" parameterType="java.util.List">  
+	insert into ${tableName} (@insert{@{columnName},}@)  
+      values
+     <foreach collection="list" item="item" index="index"  separator="," >  
+         (
+        @insert{#{item.@{name},jdbcType=@{jdbcColumnType}},}@
+          )  
+    </foreach>
+</insert>
+
+<!--oracle 插入记录 -->
+<!--
+<insert id="insert" parameterType="Object" >
+  insert into ${tableName} (${pkId},@insert{@{columnName},}@)
+  values(sys_guid(),@insert{#{@{name},jdbcType=@{jdbcColumnType}},}@)
+</insert>
+-->
+<!--oracle 批量插入 -->
+<!--
+<insert id="insertBatch" parameterType="java.util.List">  
+	insert into ${tableName} (${pkId},@insert{@{columnName},}@)  
+      values
+     <foreach collection="list" item="item" index="index"  separator="," >  
+         (
+        @insert{sys_guid(),#{item.@{name},jdbcType=@{jdbcColumnType}},}@
+          )  
+    </foreach>
+</insert>
+-->
+
+<!-- 修改记录-->
+<update id="update" parameterType="Object" >
+	update ${tableName} set 
+	<trim  suffixOverrides="," >
+	@update{<if test="@{name} != null ">@{columnName}=#{@{name}},</if>}@
+	</trim> where ${pkId}=#{id} 
+</update>
+<!-- 批量修改 -->
+<update id="updateBatch" parameterType="java.util.List">  
+     <foreach collection="list" item="item" index="index" open="" close="" separator=";">  
+       UPDATE ${tableName}  
+       <set>  
+            @update{<if test="item.@{name} != null ">@{columnName}=#{item.@{name}},</if>}@
+       </set>  
+       WHERE ${pkId}=#{item.id} 
+     </foreach>  
+</update>  
+
+<!-- 删除记录 -->
+<delete id="deleteById" parameterType="Object">
+	delete from ${tableName} where ${pkId} = #{id}
+</delete>
+<delete id="deleteByParam" parameterType="Object">
+</delete>
+<delete id="deleteByEntity" parameterType="Object">
+</delete>
+<!-- 批量删除 -->
+<delete id="deleteBatch" parameterType="java.util.List">
+	delete from ${tableName} where id in
+	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+        #{item}  
+    </foreach>
+</delete>
+
+<!-- 查询单个实体 -->
+<select id="getEntityById"  resultMap="${name}" parameterType="Object">
+	select <include refid="columnList" /> 
+	from ${tableName}  ${abbrTableName}
+	where  ${abbrTableName}.id = #{id}
+</select>
+<select id="getEntityByParam"  resultMap="${name}" parameterType="Object">
+	select <include refid="columnList" /> 
+	from ${tableName} ${abbrTableName}
+	<include refid="whereClause"/>
+</select>
+<select id="getEntity"  resultMap="${name}" parameterType="Object">
+	select <include refid="columnList" /> 
+	from ${tableName} ${abbrTableName}
+	<include refid="whereClause"/>
+</select>
+
+<!-- 列表总数-->
+<select id="count" resultType="java.lang.Long"  parameterType="Object">
+	select count(1) 
+	from ${tableName} ${abbrTableName}
+	<include refid="whereClause"/>
+</select>
+
+<!-- 查询列表  返回List<ENTITY>-->
+<select id="queryList" resultMap="${name}"  parameterType="Object">
+	select 
+	<include refid="columnList"/>
+	from ${tableName} ${abbrTableName}
+	<include refid="whereClause"/>
+</select>
+<!-- 查询列表  返回List<Map<String,Object>>-->
+<select id="queryListMap" resultType="java.util.HashMap"  parameterType="Object">
+	select 
+	<include refid="columnList"/>
+	from ${tableName} ${abbrTableName}
+	<include refid="whereClause"/>
+</select>
+<!-- 模糊查询列表  返回List<ENTITY>-->
+<select id="queryListByLike" resultMap="${name}"  parameterType="Object">
+	select 
+	<include refid="columnList"/>
+	from ${tableName} ${abbrTableName}
+	<include refid="whereLikeClause"/>
+</select>
+<!-- 模糊查询列表  返回List<Map<String,Object>>-->
+<select id="queryListMapByLike" resultType="java.util.HashMap"  parameterType="Object">
+	select 
+	<include refid="columnList"/>
+	from ${tableName} ${abbrTableName}
+	<include refid="whereLikeClause"/>
+</select>
+
+</mapper>

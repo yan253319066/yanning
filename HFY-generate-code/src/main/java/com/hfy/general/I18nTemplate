@@ -1,0 +1,9 @@
+//${nameCN}
+var ${jsI18nName}={
+	${name}_list_title:'${nameCN}信息',
+	${name}_add${className}:'添加${nameCN}',
+	${name}_edit${className}:'修改${nameCN}',
+	${name}_view${className}:'查看${nameCN}',
+	${name}_list_query:'${nameCN}查询',
+	${columns}
+}

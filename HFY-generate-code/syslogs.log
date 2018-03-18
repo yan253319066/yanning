@@ -1,0 +1,151 @@
+2017-04-25 11:06:13,741 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载MySQL驱动程序
+2017-04-25 11:06:15,253 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-04-25 11:06:15,281 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-04-25 11:06:15,283 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-04-25 11:06:15,285 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-04-25 11:06:15,286 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-04-25 11:06:15,288 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-04-25 11:06:15,307 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-04-25 11:06:15,308 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-04-25 11:06:15,309 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-04-25 11:06:15,310 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-04-25 11:06:15,317 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-04-25 11:06:15,317 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-04-25 11:12:10,682 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载MySQL驱动程序
+2017-04-25 11:12:10,967 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-04-25 11:12:10,999 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-04-25 11:12:10,999 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-04-25 11:12:11,001 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-04-25 11:12:11,002 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-04-25 11:12:11,004 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-04-25 11:12:11,008 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-04-25 11:12:11,009 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-04-25 11:12:11,011 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-04-25 11:12:11,012 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-04-25 11:12:11,013 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-04-25 11:12:11,013 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-04-25 22:50:18,026 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-04-25 22:50:18,117 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-04-25 22:55:58,669 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-04-25 22:55:58,719 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-04-25 22:57:05,878 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-04-25 22:57:06,116 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-04-25 22:57:44,853 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-04-25 22:57:45,228 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-04-25 22:57:45,276 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-04-25 22:57:45,277 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-04-25 22:57:45,280 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-04-25 22:57:45,291 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-04-25 22:57:45,309 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-04-25 22:57:45,327 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-04-25 22:57:45,339 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-04-25 22:57:45,341 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-04-25 22:57:45,351 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-04-25 22:57:45,356 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-04-25 22:57:45,356 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-13 17:28:58,689 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-13 17:28:59,101 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-13 17:29:45,114 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-13 17:29:45,447 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-13 17:29:45,474 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-13 17:29:45,475 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-13 17:29:45,476 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-13 17:29:45,477 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-13 17:29:45,479 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-13 17:29:45,482 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-13 17:29:45,484 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-13 17:29:45,486 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-13 17:29:45,488 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-13 17:29:45,491 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-13 17:29:45,491 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-16 20:47:37,354 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-16 20:47:37,881 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-16 20:47:37,901 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-16 20:47:37,911 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-16 20:47:37,912 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-16 20:47:37,915 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-16 20:47:37,917 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-16 20:47:37,922 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-16 20:47:37,938 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-16 20:47:37,940 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-16 20:47:37,948 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-16 20:47:37,950 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-16 20:47:37,950 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-16 21:20:01,749 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-16 21:20:02,117 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-16 21:20:02,167 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-16 21:20:02,168 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-16 21:20:02,169 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-16 21:20:02,170 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-16 21:20:02,171 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-16 21:20:02,175 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-16 21:20:02,177 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-16 21:20:02,179 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-16 21:20:02,180 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-16 21:20:02,182 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-16 21:20:02,182 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-16 21:35:01,832 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-16 21:35:02,173 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-16 21:35:02,204 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-16 21:35:02,205 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-16 21:35:02,206 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-16 21:35:02,208 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-16 21:35:02,210 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-16 21:35:02,216 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-16 21:35:02,219 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-16 21:35:02,221 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-16 21:35:02,223 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-16 21:35:02,226 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-16 21:35:02,226 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-20 22:36:52,765 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-20 22:36:53,303 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-20 22:36:53,342 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-20 22:36:53,343 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-20 22:36:53,345 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-20 22:36:53,347 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-20 22:36:53,349 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-20 22:36:53,353 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-20 22:36:53,367 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-20 22:36:53,369 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-20 22:36:53,371 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-20 22:36:53,372 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-20 22:36:53,373 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-22 11:20:57,726 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-22 11:20:58,329 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-22 11:20:58,375 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-22 11:20:58,392 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-22 11:20:58,393 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-22 11:20:58,409 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-22 11:20:58,423 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-22 11:20:58,444 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-22 11:20:58,468 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-22 11:20:58,478 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-22 11:20:58,494 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-22 11:20:58,495 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-22 11:20:58,496 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2017-10-29 12:53:45,643 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2017-10-29 12:53:46,316 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2017-10-29 12:53:46,381 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2017-10-29 12:53:46,383 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2017-10-29 12:53:46,388 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2017-10-29 12:53:46,391 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2017-10-29 12:53:46,461 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2017-10-29 12:53:46,491 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2017-10-29 12:53:46,505 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2017-10-29 12:53:46,520 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2017-10-29 12:53:46,530 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2017-10-29 12:53:46,532 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2017-10-29 12:53:46,532 [main] [com.hfy.general.GenegralTool] [INFO] - done
+2018-01-24 19:26:09,980 [main] [com.hfy.general.GenegralTool] [INFO] - 成功加载oracle驱动程序
+2018-01-24 19:26:10,530 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Entity.java完成
+2018-01-24 19:26:10,572 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.xml完成
+2018-01-24 19:26:10,573 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Mapper.java完成
+2018-01-24 19:26:10,575 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Service.java完成
+2018-01-24 19:26:10,597 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成ServiceImpl.java完成
+2018-01-24 19:26:10,600 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成Controller.java完成
+2018-01-24 19:26:10,615 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成js完成
+2018-01-24 19:26:10,617 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp add完成
+2018-01-24 19:26:10,627 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp view完成
+2018-01-24 19:26:10,631 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成jsp list完成
+2018-01-24 19:26:10,633 [main] [com.hfy.general.GenegralTool] [INFO] - 自动生成国际化js文件完成
+2018-01-24 19:26:10,633 [main] [com.hfy.general.GenegralTool] [INFO] - done

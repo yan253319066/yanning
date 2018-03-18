@@ -1,0 +1,360 @@
+/**
+ * ${nameCN}
+ */
+var ${name} = {
+	add:1, //新增
+	edit:2,//修改
+	form:null,
+	/**
+	 * 初始化${nameCN}验证
+	 * @param form
+	 * form表单对象
+	 */
+	validate : function(form) {
+		$(form).validate({
+    		rules : {
+    		}
+    	});
+    	
+	},
+	/**
+	 * get子窗口form
+	 * @returns
+	 */
+	getChildForm:function(){
+		return $(${name}.form);
+	},
+	/**
+	 * set子窗口form
+	 * @param form
+	 */
+	setChildForm:function(form){
+		${name}.form = form;
+	},
+	/**
+	 * 保存${nameCN}
+	 * @param form
+	 * form表单对象
+	 * @param index
+	 * layer id
+	 */
+	save${className}:function(form,index){
+		var b = form.valid(); 
+		if(!b){
+			return;
+		}
+		$.ajax({
+			url:'../${name}/save.action',//后台处理程序
+			ContentType: "text/xml;utf-8",
+			type:'post',         //数据发送方式
+			dataType:'json',   //接受数据格式
+			data:form.serialize(),
+			success:function(data) {
+				if(data.code == 200){
+					layer.close(index);
+					$('#${name}ListTable').bootstrapTable("refresh");
+					layer.msg(parent.common.tip_success, {
+					  icon: 1,
+					  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+					  //do something
+					});
+				}else{
+					layer.msg(parent.common.tip_fail, {
+					  icon: 2,
+					  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+					  //do something
+					});
+				}
+			},
+			error:function(){
+				layer.msg(parent.common.tip_server_busy, {
+				  icon: 2,
+				  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+				}, function(){
+				  //do something
+				});
+			}    
+		});
+	},
+	/**
+	 * 弹出添加修改${name}页面
+	 * @param type 
+	 * 1新增，2修改
+	 */
+	save${className}Page:function(type){
+		var data;
+		if(type == ${name}.edit){
+			  data = $("#${name}ListTable").bootstrapTable('getSelections');
+			  if(data.length == 0){
+					layer.msg(parent.common.tip_select_one, {
+					  icon: 0,
+					  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+					  //do something
+					});
+					return;
+				}else if(data.length > 1){
+					layer.msg(parent.common.tip_select_onlyOne, {
+					  icon: 0,
+					  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+					  //do something
+					});
+					return;
+			  }
+		}
+		
+		var title='';
+		if(type==${name}.add){
+			title=${jsI18nName}.${name}_add${className};
+		}else if(type==${name}.edit){
+			title=${jsI18nName}.${name}_edit${className};
+		}
+		layer.open({
+		  type: 2,//1 div，2 iframe
+		  title:title,
+		  maxmin :true,
+		  skin: 'layui-layer-rim', //加上边框
+		  area: ['800px', '400px'], //宽高
+		  content: 'view.action?url=${jsPath}${name}_save',
+		  btn: [parent.common.button_save, parent.common.button_close]
+		  ,btn1: function(index, layero){
+			  var body = layer.getChildFrame('body', index); 
+			  ${name}.setChildForm(body.find("#${name}Form"));
+			  ${name}.save${className}(body.find("#${name}Form"),index); 
+		  },btn2: function(index, layero){
+			  layer.close(index);
+		  },
+		  success:function(layero, index){
+			  var body = layer.getChildFrame('body', index);
+			  ${name}.initI18nChild(body.find("#${name}Form"));
+			  ${name}.validate(body.find("#${name}Form"));
+			  if(type == ${name}.edit){
+				  body.find("#${name}Form").fill(data[0]);
+			  }
+		  }
+		});
+	},
+	/**
+	 * 弹出查看${name}页面
+	 */
+	view${className}Page:function(){
+		var data = $("#${name}ListTable").bootstrapTable('getSelections');
+		if(data.length == 0){
+			layer.msg(parent.common.tip_select_one, {
+				icon: 0,
+				time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			}, function(){
+				  //do something
+			});
+			return;
+		}else if(data.length > 1){
+			layer.msg(parent.common.tip_select_onlyOne, {
+				icon: 0,
+				time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			}, function(){
+				  //do something
+			});
+			return;
+		}
+		var title=${name}.${name}_view${className};
+		layer.open({
+		  type: 2,//1 div，2 iframe
+		  title:title,
+		  maxmin :true,
+		  skin: 'layui-layer-rim', //加上边框
+		  area: ['800px', '400px'], //宽高
+		  content: 'view.action?url=${jsPath}${name}_view',
+		  btn: [parent.common.button_close],
+		  btn1: function(index, layero){
+			  layer.close(index);
+		  },
+		  success:function(layero, index){
+			  var body = layer.getChildFrame('body', index);
+			  ${name}.initI18nChild(body.find("#${name}Form"));  
+			  for(var key in data[0]){
+				  body.find("#"+key).html(data[0][key]);   
+			  }  
+		  }
+		});
+	},
+	/**
+	 * 删除${nameCN}
+	 */
+	del${className}:function(){
+		var ids = $.map($("#${name}ListTable").bootstrapTable('getSelections'), function (row) {
+            return row.id
+        });
+		if(ids.length == 0){
+			layer.msg(parent.common.tip_select_one, {
+			  icon: 0,
+			  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+			}, function(){
+			  //do something
+			});
+			return;
+		}
+		
+		//询问框
+		layer.confirm(parent.common.tip_confirm_del, {
+			title:${jsI18nName}.tip_title,
+		    btn: [parent.common.button_yes,parent.common.button_no] //按钮
+		}, function(){
+			$.ajax({
+				url:'../${name}/del.action',//后台处理程序
+				ContentType: "text/xml;utf-8",
+				type:'post',         //数据发送方式
+				dataType:'json',   //接受数据格式
+				data:{ids:ids.join(",")},
+				success:function(data) {
+					if(data.code == 200){
+						layer.msg(parent.common.tip_success, {
+						  icon: 1,
+						  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						}, function(){
+						  //do something
+						});
+						$('#${name}ListTable').bootstrapTable("refresh");
+					}else{
+						layer.msg(parent.common.tip_fail, {
+						  icon: 2,
+						  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+						}, function(){
+						  //do something
+						});
+					}
+				},
+				error:function(){
+					layer.msg(parent.common.tip_server_busy, {
+					  icon: 2,
+					  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function(){
+					  //do something
+					});
+				}    
+			});
+		}, function(index){
+			//否
+			layer.close(index);
+		});
+		
+	},
+	/**
+	 * 导出${name}页面
+	 */
+	export${className}Page:function(){
+		//获取显示的列的字段名和标题
+		var columns = $('#${name}ListTable').bootstrapTable("getVisibleColumns");
+		var fieldNames = [];
+		$(columns).each(function(i,o){
+			var fieldName = {};
+			fieldName.field = o.field;
+			fieldName.title = o.title;
+			if(o.title && o.title != ""){
+				fieldNames.push(fieldName);
+			}
+		});
+		var param = $("#queryForm").serialize();
+		param += "&exportHeader="+JSON.stringify(fieldNames)+"&exportFieldName="+$.i18n.prop('${jsI18nName}.list_title');
+		window.location = "../${name}/export.action?"+param;
+	},
+	/**
+	 * 查询${name}
+	 */
+	query${className}:function(){
+		$('#${name}ListTable').bootstrapTable("refresh");
+	},
+	/**
+	 * 初始化table
+	 */
+	initTable:function(){
+        $('#${name}ListTable').bootstrapTable({
+            method: 'post',
+            contentType: "application/x-www-form-urlencoded",
+            toolbar: '#toolbar',    //工具按钮用哪个容器
+            striped: true,      //是否显示行间隔色
+            cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,     //是否显示分页（*）
+            sortable: true,      //是否启用排序
+            sortName:"updateDate",//排序字段
+            sortOrder: "desc",     //排序方式
+            pageNumber: 1,      //初始化加载第一页，默认第一页
+            pageSize: 10,      //每页的记录行数（*）
+            pageList: [10, 25, 50, 100, 150],  //可供选择的每页的行数（*）
+            url: "../${name}/list.action",
+            //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort 
+            // 设置为 '' 在这种情况下传给服务器的参数为：pageSize,pageNumber
+            queryParamsType: '', 
+            sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
+            queryParams: function queryParams(params) {   //设置查询参数  
+            	var query = utils.bootstrapQueryParam($("#queryForm"),params);
+                return query;                   
+            },
+            clickToSelect: true,    //是否启用点击选中行
+            //singleSelect:true,//单选
+            
+            //search: true, //是否显示表格搜索
+            //searchOnEnterKey: true,//回车搜索
+            //strictSearch: true,//设置为 true启用 全匹配搜索，否则为模糊搜索
+            showToggle:true,//是否显示 切换试图（table/card）按钮 
+            showColumns: true, //显示下拉框勾选要显示的列  
+            showRefresh: true, //是否显示刷新按钮
+            showExport:true,//是否显示导出
+            exportTypes:['csv'],
+            exportDataType:'all',
+            exportOptions: {
+                fileName: ${jsI18nName}.${name}_list_title
+            },
+            minimumCountColumns: 2,    //最少允许的列数
+            onClickRow:function(row){},//单击事件
+            columns: [${jsTableColumns}]
+        });
+	},
+	/**
+	 * 初始国际化
+	 */
+	initI18n:function(){
+		$('#${name}-list-query').html(${jsI18nName}.${name}_list_query);
+		        
+        $('#button-search').html(parent.common.button_search);
+        $('#button-add').html(parent.common.button_add);
+        $('#button-edit').html(parent.common.button_edit);
+        $('#button-del').html(parent.common.button_del);
+        $('#button-view').html(parent.common.button_view);
+        $('#button-export').html(parent.common.button_export);
+        ${initI18n}
+	},
+	/**
+	 * 子页面国际化
+	 * @param form
+	 */
+	initI18nChild:function(form){
+		${initI18nChild}
+	},
+	/**
+	 * 回车查询
+	 */
+	keyDownSearch:function(){
+		$(".keydown").keydown(function(e){
+			// 兼容FF和IE和Opera 
+		    var theEvent = e || window.event; 
+		    var code = theEvent.keyCode || theEvent.which || theEvent.charCode; 
+		    if (code == 13) {  
+		    	${name}.query${className}();
+		        return false; 
+		    } 
+		    return true; 
+		});
+	}
+}
+
+$(function(){
+	var url = $.cookie("ctx")+"resources/webjs/i18n/${jsPath}/${name}_"+$.cookie("language")+".js";
+	jQuery.getScript(url).done(function() {
+		${name}.initI18n();
+		${name}.initTable();
+		${name}.keyDownSearch();
+	});
+});
