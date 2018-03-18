@@ -1,0 +1,358 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>HFY-common-utils</groupId>
+  <artifactId>HFY-common-utils</artifactId>
+  <version>0.0.8-ecp-SNAPSHOT</version>
+  
+  <properties>
+	 		<!-- build -->
+		<project.build.jdk>1.6</project.build.jdk>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.maven-compiler-plugin>2.5.1</project.build.maven-compiler-plugin>
+		<project.build.maven-resources-plugin>2.6</project.build.maven-resources-plugin>
+		<project.build.maven-surefire>2.10</project.build.maven-surefire>
+		<project.build.maven-jar-plugin>2.4</project.build.maven-jar-plugin>
+		<project.build.maven-javadoc-plugin>2.9.1</project.build.maven-javadoc-plugin>
+		<project.build.maven-source-plugin>2.2.1</project.build.maven-source-plugin>
+		<!-- base -->
+		<version.commons-lang3>3.2</version.commons-lang3>
+		<version.commons-io>2.0.1</version.commons-io>
+		<version.json>1.0.2</version.json>
+		<version.jackson>2.4.6</version.jackson>
+		<version.cglib>3.1</version.cglib>
+		<version.javassist>3.18.2-GA</version.javassist>
+		<version.aspectjrt>1.8.0</version.aspectjrt>
+		<version.aspectjweaver>1.8.0</version.aspectjweaver>
+		<version.apache.poi>3.9</version.apache.poi>
+		<version.email>1.4</version.email>
+		<version.ant>1.9.6</version.ant>
+		
+		<!-- data pool -->
+		<version.c3p0>0.9.1.2</version.c3p0>
+		<version.dbcp>1.2.2</version.dbcp>
+		<!-- mysql-->
+		<version.mysql>5.1.10</version.mysql>
+		<!-- oracle -->
+		<version.oracle>11.2.0.1.0</version.oracle>
+		<version.oracle.classes12>1.0.0</version.oracle.classes12>
+		
+		<!-- spring -->
+		<version.spring>4.1.3.RELEASE</version.spring>
+		<!-- mybatis分页 -->
+		<version.mybatis-pagehelper>4.0.0</version.mybatis-pagehelper>
+		<!-- shiro -->
+		<version.shiro>1.2.3</version.shiro>
+		<!-- 图形验证码 -->
+		<version.kaptcha>0.0.9</version.kaptcha>
+		<!-- log4j -->
+		<version.commons-logging>1.1</version.commons-logging>
+		<version.log4j>1.2.17</version.log4j>
+        <version.slf4j-api>1.7.5</version.slf4j-api>
+        <version.log4j-core>2.0.2</version.log4j-core>
+		<version.slf4j-log4j12>1.7.5</version.slf4j-log4j12>
+	</properties>
+	
+	  <repositories>
+         <repository>
+             <id>nexus</id>
+             <name>Team Nexus Repository</name>
+             <url>http://120.24.153.253:8088/nexus/content/groups/publicGroup</url>
+         </repository>
+     </repositories>
+     <pluginRepositories>
+         <pluginRepository>
+             <id>nexus</id>
+             <name>Team Nexus Repository</name>
+             <url>http://120.24.153.253:8088/nexus/content/groups/publicGroup</url>
+         </pluginRepository>
+     </pluginRepositories>
+	<!-- 发布项目配置远程仓库 -->
+	  <distributionManagement>    
+	    <repository>    
+	      <id>nexus-releases</id>    
+	      <name>Nexus Release Repository</name>    
+	      <url>http://120.24.153.253:8088/nexus/content/repositories/releases/</url>    
+	    </repository>    
+	    <snapshotRepository>    
+	      <id>nexus-snapshots</id>    
+	      <name>Nexus Snapshot Repository</name>    
+	      <url>http://120.24.153.253:8088/nexus/content/repositories/snapshots/</url>    
+	    </snapshotRepository>    
+	  </distributionManagement>
+
+	<dependencies>
+		<!-- base -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${version.commons-lang3}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${version.commons-io}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib-ext-spring</artifactId>
+			<version>${version.json}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.ant</groupId>
+		    <artifactId>ant</artifactId>
+		    <version>${version.ant}</version>
+		</dependency>
+		
+		<!-- poi -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>${version.apache.poi}</version>
+		</dependency>
+		<!-- commons-email -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-email</artifactId>
+		    <version>${version.email}</version>
+		</dependency>
+		
+		<!-- data pool -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${version.c3p0}</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>${version.dbcp}</version>
+		</dependency>
+		<!-- springmvc返回JSON格式用 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${version.jackson}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${version.jackson}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${version.jackson}</version>
+		</dependency>
+		<!-- cglib javassist -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${version.cglib}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${version.javassist}</version>
+		</dependency>
+		<!-- AspectJ Runtime -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${version.aspectjrt}</version>
+        </dependency>
+        <!-- AspectJ Weaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${version.aspectjweaver}</version>
+        </dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<!-- SpringMVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${version.spring}</version>
+        </dependency>
+		<!-- mybatis分页插件依赖 -->
+		<dependency>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper</artifactId>
+		    <version>${version.mybatis-pagehelper}</version>
+		</dependency>
+		<!-- shiro -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${version.shiro}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${version.shiro}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${version.shiro}</version>
+		</dependency>
+		<dependency>  
+	        <groupId>org.apache.shiro</groupId>  
+	        <artifactId>shiro-ehcache</artifactId>  
+	        <version>${version.shiro}</version>  
+	    </dependency>  
+	    <!-- 图形验证码 -->
+		<dependency>  
+            <groupId>com.github.axet</groupId>  
+            <artifactId>kaptcha</artifactId>  
+            <version>${version.kaptcha}</version>  
+        </dependency>  
+		<!-- mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${version.mysql}</version>
+        </dependency>
+        <!-- oracle -->
+        <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>${version.oracle}</version>
+		</dependency>
+        <!-- <dependency>
+			<groupId>3rd.oracle</groupId>
+			<artifactId>classes12</artifactId>
+			<version>${version.oracle.classes12}</version>
+		</dependency> -->
+        <!-- log4j -->
+        <dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${version.commons-logging}</version>
+		</dependency>
+		<dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${version.log4j}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j-api}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.log4j-core}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${version.slf4j-log4j12}</version>
+        </dependency>
+	</dependencies>
+  
+  <build>
+		<finalName>HFY-common-utils</finalName>
+		<plugins>
+			<!-- 编译环境 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${project.build.maven-compiler-plugin}</version>
+				<configuration>
+					<source>${project.build.jdk}</source>
+					<target>${project.build.jdk}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${project.build.maven-resources-plugin}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${project.build.maven-jar-plugin}</version>
+            </plugin>
+            <!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${project.build.maven-javadoc-plugin}</version>
+				<configuration>
+			        <aggregate>true</aggregate>
+				</configuration>
+				<executions>  
+                    <execution>  
+                        <id>attach-javadocs</id>  
+                        <goals>  
+                            <goal>jar</goal>  
+                        </goals>  
+                    </execution>  
+                </executions>  
+			</plugin> -->
+            <plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${project.build.maven-source-plugin}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${project.build.maven-surefire}</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<excludes>
+						<exclude>**/*Test.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+</project>

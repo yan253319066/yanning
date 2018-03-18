@@ -1,0 +1,1 @@
+package com.hfy.config.mapper;import com.hfy.base.mapper.BaseMapper;public interface ConfigMapper extends BaseMapper {		/**	 * 根据code查询值	 * @author yanning	 * @date 2016年12月19日 上午10:52:25	 * @version 1.0	 * @param code	 * @return	 */	public String getValue(String code);}

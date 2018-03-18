@@ -1,0 +1,1 @@
+package com.hfy.log.service;import com.hfy.base.service.BaseService;public interface LogService extends BaseService {	/**	 * log分表	 * @author yanning	 * @date 2017年3月20日 上午9:34:03	 * @version 1.0	 * @return	 */	int logSubmeter();}

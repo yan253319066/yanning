@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+	default-lazy-init="true">
+	
+	 <!-- Shiro Filter 拦截器相关配置 -->  
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+        <!-- securityManager -->  
+        <property name="securityManager" ref="securityManager" />  
+        <!-- 登录路径 -->  
+        <property name="loginUrl" value="/login/loginPage.action" />  
+        <!-- 登录成功后跳转路径 -->  
+        <property name="successUrl" value="/home.action" />  
+        <!-- 授权失败跳转路径 -->  
+        <property name="unauthorizedUrl" value="/common/error/unauthorized.jsp" />  
+        <property name="filters">  
+            <util:map>  
+                <entry key="authc" value-ref="myAuthenFilter" />  
+                <entry key="permission" value-ref="permissionAuthorizationFilter"/>
+            </util:map>  
+        </property>  
+        <!-- 过滤链定义 -->  
+        <property name="filterChainDefinitions">  
+            <value>  
+            	/login.action = anon
+                /logout.action = logout  
+                /kaptcha/getKaptchaImage.action = anon
+                /i18n/setLanguage.action = anon
+                /resources/** = anon
+                /webservice/** = anon
+				<!-- /** = authc,permission -->
+            </value>  
+        </property>  
+    </bean>  
+  
+    <!-- 自定义验证拦截器 -->  
+    <bean id="myAuthenFilter" class="com.hfy.shiro.CaptchaFormAuthenticationFilter" />  
+    <bean id="permissionAuthorizationFilter" class="com.hfy.shiro.PermissionAuthorizationFilter" />
+  
+    <!-- securityManager -->  
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+        <property name="realm" ref="myRealm" />  
+        <!-- 用户授权信息Cache -->
+		<property name="cacheManager"><bean class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/></property>
+    </bean>  
+  <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />  
+  
+    <!-- 自定义Realm实现 -->  
+    <bean id="myRealm" class="com.hfy.shiro.CustomRealm">  
+        <!-- <property name="credentialsMatcher" ref="passwordMatcher"></property> -->
+    </bean>  
+    <!-- 密码输入次数限制 -->
+    <!-- <bean id="passwordMatcher" class="com.hfy.shiro.LimitRetryHashedMatcher">
+    	加密方式
+        <property name="hashAlgorithmName" value="md5"/>
+   		指定散列次数为2次；
+   		<property name="hashIterations" value="2"/>
+   		指定Hash散列值使用Hex加密存储。value="false"表明hash散列值用用Base64-encoded存储。  
+   		<property name="storedCredentialsHexEncoded" value="true"/>
+    </bean> -->
+</beans>  
